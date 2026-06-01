@@ -22,14 +22,14 @@ export function Contact() {
           </div>
           <div className="md:col-span-4">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-dim">Currently</div>
-            <p className="mt-2 text-ink">Building Whysp.ai · Reading orbital mechanics · Open to selective collaborations.</p>
+            <p className="mt-2 text-ink">Building Whysp AI · Reading orbital mechanics · Open to selective collaborations.</p>
           </div>
           <div className="md:col-span-4">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-dim">Elsewhere</div>
             <ul className="mt-2 space-y-1 text-ink">
-              <li><a className="transition-colors hover:text-coral" href="#">LinkedIn ↗</a></li>
-              <li><a className="transition-colors hover:text-coral" href="#">Whysp.ai ↗</a></li>
-              <li><a className="transition-colors hover:text-coral" href="#">AstroVent ↗</a></li>
+              <li><a className="transition-colors hover:text-coral" href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a className="transition-colors hover:text-coral" href={PROFILE.whysp} target="_blank" rel="noopener noreferrer">Whysp AI ↗</a></li>
+              <li><a className="transition-colors hover:text-coral" href="https://www.instagram.com/astrovent.in/" target="_blank" rel="noopener noreferrer">AstroVent ↗</a></li>
             </ul>
           </div>
         </div>
