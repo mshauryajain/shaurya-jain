@@ -187,7 +187,7 @@ export const MARQUEE = [
   "Stanford '26",
   "NASA",
   "BITS Pilani",
-  "Whysp.ai",
+  "Whysp AI",
   "AstroVent",
   "Space Systems",
 ];
