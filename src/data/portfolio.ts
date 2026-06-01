@@ -4,7 +4,9 @@ export const PROFILE = {
   tagline:
     "Redesigning how humans communicate, learn, and look at the sky.",
   location: "India — Remote / Hybrid",
-  email: "hello@shauryajain.in",
+  email: "mshauryajain@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jainnn/",
+  whysp: "https://whyspai.com",
 };
 
 export const EXPERIENCE = [
