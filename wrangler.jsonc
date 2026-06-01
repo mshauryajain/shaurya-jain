@@ -2,7 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "shaurya-jain",
   "compatibility_date": "2026-06-01",
+
   "main": "dist/server/server.js",
+
+  "assets": {
+    "directory": "dist/client"
+  },
+
   "compatibility_flags": [
     "nodejs_compat"
   ]
