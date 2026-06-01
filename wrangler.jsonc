@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "shaurya-jain",
   "compatibility_date": "2026-06-01",
-  "main": "@tanstack/react-start/server-entry",
+  "main": "dist/server/server.js",
   "compatibility_flags": [
     "nodejs_compat"
   ]
