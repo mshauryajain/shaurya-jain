@@ -18,7 +18,7 @@ export const EXPERIENCE = [
     duration: "9 mos",
     place: "India · Remote",
     blurb:
-      "Building Whysp.ai — an AI-powered communication assistant that improves people's productivity by redesigning how we talk, write, and decide.",
+      "Building Whysp AI — an AI-powered communication assistant that improves people's productivity by redesigning how we talk, write, and decide.",
     tags: ["Artificial Intelligence", "Product", "Business", "Communication"],
   },
   {
