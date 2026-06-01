@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Shaurya Jain — Founder, Builder, Student of Space & Systems" },
-      { name: "description", content: "Portfolio of Shaurya Jain — Founder of Whysp.ai, AstroVent India, NASA citizen scientist, Stanford Code in Place 2026." },
+      { name: "description", content: "Portfolio of Shaurya Jain — Founder of Whysp AI, AstroVent India, NASA citizen scientist, Stanford Code in Place 2026." },
       { property: "og:title", content: "Shaurya Jain — Portfolio" },
       { property: "og:description", content: "Founder. Builder. Student of space & systems." },
     ],

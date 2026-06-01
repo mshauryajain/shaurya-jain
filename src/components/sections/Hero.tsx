@@ -40,7 +40,7 @@ export function Hero() {
       {/* Bottom meta */}
       <motion.div style={{ y: y2 }} className="z-10 mt-12 grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
         <p className="md:col-span-5 md:col-start-1 max-w-md text-pretty text-base leading-relaxed text-ink-muted md:text-lg">
-          {PROFILE.tagline} Founder building <span className="text-ink">Whysp.ai</span>, ex-student of orbits and aerosols, currently turning curiosity into companies.
+          {PROFILE.tagline} Founder building <a href="https://whyspai.com" target="_blank" rel="noopener noreferrer" className="text-ink underline-offset-4 transition-colors hover:text-coral hover:underline">Whysp AI</a>, ex-student of orbits and aerosols, currently turning curiosity into companies.
         </p>
         <div className="md:col-span-3 md:col-start-7 space-y-1 font-mono text-[11px] uppercase tracking-widest text-ink-dim">
           <div className="flex justify-between"><span>Role</span><span className="text-ink">Founder · CEO</span></div>

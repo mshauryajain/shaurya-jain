@@ -4,7 +4,9 @@ export const PROFILE = {
   tagline:
     "Redesigning how humans communicate, learn, and look at the sky.",
   location: "India — Remote / Hybrid",
-  email: "hello@shauryajain.in",
+  email: "mshauryajain@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jainnn/",
+  whysp: "https://whyspai.com",
 };
 
 export const EXPERIENCE = [
@@ -16,7 +18,7 @@ export const EXPERIENCE = [
     duration: "9 mos",
     place: "India · Remote",
     blurb:
-      "Building Whysp.ai — an AI-powered communication assistant that improves people's productivity by redesigning how we talk, write, and decide.",
+      "Building Whysp AI — an AI-powered communication assistant that improves people's productivity by redesigning how we talk, write, and decide.",
     tags: ["Artificial Intelligence", "Product", "Business", "Communication"],
   },
   {
@@ -185,7 +187,7 @@ export const MARQUEE = [
   "Stanford '26",
   "NASA",
   "BITS Pilani",
-  "Whysp.ai",
+  "Whysp AI",
   "AstroVent",
   "Space Systems",
 ];
