@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Shaurya Jain- Portfolio" },
+      { name: "description", content: "Crimson Cascade is an ultra-premium, interactive portfolio website showcasing creative work with fluid, immersive motion." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Shaurya Jain- Portfolio" },
+      { property: "og:description", content: "Crimson Cascade is an ultra-premium, interactive portfolio website showcasing creative work with fluid, immersive motion." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Shaurya Jain- Portfolio" },
+      { name: "twitter:description", content: "Crimson Cascade is an ultra-premium, interactive portfolio website showcasing creative work with fluid, immersive motion." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43ef9f89-85db-42b2-81ee-fa33d490f887/id-preview-bb23b634--bc1b3413-5b9d-44d7-aec0-d4daedc00f66.lovable.app-1780349652820.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43ef9f89-85db-42b2-81ee-fa33d490f887/id-preview-bb23b634--bc1b3413-5b9d-44d7-aec0-d4daedc00f66.lovable.app-1780349652820.png" },
     ],
     links: [
       {
