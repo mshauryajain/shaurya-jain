@@ -1,8 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { PROJECTS } from "@/data/portfolio";
 import { SectionLabel } from "./Experience";
-import { TiltCard } from "@/components/ui/TiltCard";
 
 export function Projects() {
   return (
@@ -23,11 +22,34 @@ function ProjectCard({ project, index }: { project: (typeof PROJECTS)[number]; i
   const y = useTransform(scrollYProgress, [0, 1], [index === 0 ? 80 : 0, index === 0 ? -80 : -40]);
   const big = index === 0;
 
+  // 3D Tilt calculations
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(tiltY, [-0.5, 0.5], [8, -8]), { damping: 20, stiffness: 150 });
+  const rotateY = useSpring(useTransform(tiltX, [-0.5, 0.5], [-8, 8]), { damping: 20, stiffness: 150 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = ref.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const relativeX = (e.clientX - rect.left) / rect.width - 0.5;
+    const relativeY = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltX.set(relativeX);
+    tiltY.set(relativeY);
+  };
+
+  const handleMouseLeave = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
   return (
     <motion.article
       ref={ref}
-      style={{ y }}
-      className={`group relative overflow-hidden rounded-2xl border border-line bg-card/40 p-8 backdrop-blur-sm transition-all duration-700 hover:border-coral/40 md:p-10 ${
+      style={{ y, rotateX, rotateY, transformStyle: "preserve-3d", perspective: 1000 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`group relative overflow-hidden rounded-2xl border border-line bg-card/40 p-8 backdrop-blur-sm transition-[border-color] duration-700 hover:border-coral/40 md:p-10 ${
         big ? "md:col-span-8 md:row-span-2" : "md:col-span-4"
       }`}
     >

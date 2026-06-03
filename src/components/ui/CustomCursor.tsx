@@ -19,18 +19,43 @@ export function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Springs for the smooth trailing ring
-  const ringX = useSpring(mouseX, { damping: 30, stiffness: 200, mass: 0.6 });
-  const ringY = useSpring(mouseY, { damping: 30, stiffness: 200, mass: 0.6 });
+  // Springs for the smooth trailing ring (slime-like trailing inertia)
+  const ringX = useSpring(mouseX, { damping: 35, stiffness: 140, mass: 0.8 });
+  const ringY = useSpring(mouseY, { damping: 35, stiffness: 140, mass: 0.8 });
 
-  // Spring dimensions for scaling/morphing the cursor
-  const cursorWidth = useSpring(8, { damping: 25, stiffness: 250 });
-  const cursorHeight = useSpring(8, { damping: 25, stiffness: 250 });
-  const cursorRadius = useSpring(9999, { damping: 25, stiffness: 250 });
+  // Spring dimensions for scaling/morphing the cursor (fluid stretching and snapping)
+  const cursorWidth = useSpring(8, { damping: 28, stiffness: 160 });
+  const cursorHeight = useSpring(8, { damping: 28, stiffness: 160 });
+  const cursorRadius = useSpring(9999, { damping: 28, stiffness: 160 });
 
   // Use refs for event handler tracking to avoid stale closures and listener re-registration
   const isHoveredRef = useRef(false);
   const hoveredElRef = useRef<HTMLElement | null>(null);
+
+  // Hide the cursor on mobile touch screens
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    const mobile = (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(max-width: 768px)").matches
+    );
+    setIsMobile(mobile);
+
+    if (!mobile) {
+      document.documentElement.style.cursor = "none";
+      const style = document.createElement("style");
+      style.id = "custom-cursor-hide-style";
+      style.innerHTML = "* { cursor: none !important; }";
+      document.head.appendChild(style);
+
+      return () => {
+        document.documentElement.style.cursor = "";
+        const targetStyle = document.getElementById("custom-cursor-hide-style");
+        if (targetStyle) targetStyle.remove();
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -145,17 +170,7 @@ export function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
-
-  // Hide the cursor on mobile touch screens
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    setIsMobile(
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      window.matchMedia("(max-width: 768px)").matches
-    );
-  }, []);
+  }, [isMobile]);
 
   if (isMobile) return null;
 

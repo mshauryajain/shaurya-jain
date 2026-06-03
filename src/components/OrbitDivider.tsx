@@ -106,7 +106,7 @@ export function OrbitDivider({ speedMultiplier = 1 }: OrbitDividerProps) {
       targetRotationX = (y / height) * 0.8;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     let time = 0;
 

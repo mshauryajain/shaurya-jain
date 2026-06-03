@@ -37,7 +37,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block"
+            className="inline-block pl-4 md:pl-8 ml-[-16px] md:ml-[-32px]"
           >
             Shaurya
           </motion.span>
@@ -46,7 +46,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block italic text-coral"
+            className="inline-block italic text-coral pl-6 md:pl-10 ml-[-24px] md:ml-[-40px]"
           >
             Jain
           </motion.span>

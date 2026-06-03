@@ -24,7 +24,7 @@ export function LiquidBackground() {
       raf = requestAnimationFrame(loop);
     };
     
-    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", onMove, { passive: true });
     raf = requestAnimationFrame(loop);
     
     return () => {
