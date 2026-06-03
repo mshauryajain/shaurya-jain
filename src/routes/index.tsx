@@ -7,9 +7,11 @@ import { Projects } from "@/components/sections/Projects";
 import { Education } from "@/components/sections/Education";
 import { Archive } from "@/components/sections/Archive";
 import { Contact } from "@/components/sections/Contact";
-import { KineticWave } from "@/components/KineticWave";
+import { OrbitDivider } from "@/components/OrbitDivider";
 import { Marquee } from "@/components/Marquee";
 import { MARQUEE } from "@/data/portfolio";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { StarfieldBackground } from "@/components/ui/StarfieldBackground";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,21 +36,24 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      <CustomCursor />
+      <StarfieldBackground />
       <SmoothScroll />
       <LiquidBackground />
+
       <div className="dot-matrix" />
       <div className="grain" />
 
       <main className="relative z-[2]">
         <Hero />
-        <KineticWave intensity={1.2} />
+        <OrbitDivider speedMultiplier={1.1} />
         <Experience />
         <Marquee words={MARQUEE} />
         <Projects />
-        <KineticWave flip intensity={0.9} />
+        <OrbitDivider speedMultiplier={0.8} />
         <Education />
         <Archive />
-        <KineticWave intensity={1.4} />
+        <OrbitDivider speedMultiplier={1.3} />
         <Contact />
       </main>
     </>

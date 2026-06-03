@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { PROJECTS } from "@/data/portfolio";
 import { SectionLabel } from "./Experience";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function Projects() {
   return (

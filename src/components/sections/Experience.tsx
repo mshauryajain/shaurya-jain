@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { EXPERIENCE } from "@/data/portfolio";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function Experience() {
   return (
@@ -55,7 +56,13 @@ function Row({ idx, item }: { idx: number; item: (typeof EXPERIENCE)[number] }) 
 
 export function SectionLabel({ index, title, subtitle }: { index: string; title: string; subtitle?: string }) {
   return (
-    <div className="mx-auto flex max-w-7xl items-end justify-between gap-6 border-b border-line pb-6">
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="mx-auto flex max-w-7xl items-end justify-between gap-6 border-b border-line pb-6"
+    >
       <div>
         <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-coral">§ {index}</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,5vw,4rem)] leading-none text-ink">{title}</h2>
@@ -63,6 +70,6 @@ export function SectionLabel({ index, title, subtitle }: { index: string; title:
       {subtitle && (
         <div className="hidden font-mono text-[11px] uppercase tracking-widest text-ink-dim md:block">{subtitle}</div>
       )}
-    </div>
+    </motion.div>
   );
 }

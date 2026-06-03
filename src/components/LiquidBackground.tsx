@@ -7,20 +7,26 @@ export function LiquidBackground() {
     const el = ref.current;
     if (!el) return;
     let raf = 0;
-    let tx = 30, ty = 35, cx = 30, cy = 35;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    
     const onMove = (e: MouseEvent) => {
-      tx = (e.clientX / window.innerWidth) * 60 + 10;
-      ty = (e.clientY / window.innerHeight) * 60 + 10;
+      // Map mouse coordinates to displacement offset in pixels (-40px to 40px)
+      tx = ((e.clientX / window.innerWidth) - 0.5) * 80;
+      ty = ((e.clientY / window.innerHeight) - 0.5) * 80;
     };
+    
     const loop = () => {
       cx += (tx - cx) * 0.04;
       cy += (ty - cy) * 0.04;
-      el.style.setProperty("--mx", `${cx}%`);
-      el.style.setProperty("--my", `${cy}%`);
+      
+      // Perform GPU-accelerated translation
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
       raf = requestAnimationFrame(loop);
     };
+    
     window.addEventListener("mousemove", onMove);
     raf = requestAnimationFrame(loop);
+    
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
@@ -29,7 +35,10 @@ export function LiquidBackground() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-canvas">
-      <div ref={ref} className="liquid" />
+      {/* GPU-accelerated wrapper container */}
+      <div ref={ref} className="absolute inset-0 will-change-transform">
+        <div className="liquid" />
+      </div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,oklch(0.06_0.005_20/0.85)_85%)]" />
     </div>
   );
