@@ -160,7 +160,7 @@ export const VOLUNTEERING = [
     role: "Chief Prefect",
     org: "ASN Senior Secondary School",
     period: "Apr 2022 — Feb 2023",
-    blurb: "Second-highest student leadership role among 900+ students. Liaison between students and administration.",
+    blurb: "Third-highest student leadership role among 900+ students. Liaison between students and administration.",
   },
   {
     role: "Mashaal Parade",
